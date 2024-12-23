@@ -4,7 +4,7 @@ import ArticleDetail from './ArticleDetail';
 
 const ArticleModal = ({ article, onClose }) => {
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white p-6 rounded-lg max-w-3xl w-full relative">
                 <button
                     onClick={onClose}

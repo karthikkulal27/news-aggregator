@@ -1,22 +1,14 @@
 // ArticlesList.js
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles } from '../features/articles/articlesSlice';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import ArticleCarousel from './ArticleCarousel';
 import ArticleModal from './ArticleModal';
+import Headerwithviewmore from './Headerwithviewmore';
 
-const ArticlesList = () => {
-    const dispatch = useDispatch();
-    const { items, loading, error } = useSelector((state) => state.articles);
+const ArticlesList = ({ articles, loading, title }) => {
     const [selectedArticle, setSelectedArticle] = useState(null);
 
-    useEffect(() => {
-        // Dispatch the async action to fetch articles
-        dispatch(fetchArticles({ keyword: 'today' }));
-    }, [dispatch]);
-
     if (loading) return <p>Loading articles...</p>;
-    if (error) return <p>Error: {error}</p>;
 
     const handleArticleClick = (article) => {
         setSelectedArticle(article);
@@ -28,9 +20,12 @@ const ArticlesList = () => {
 
     return (
         <div>
-            <h1 className="text-2xl font-semibold my-4">News Articles</h1>
+            {/* Left Section */}
+            <div className="flex flex-col items-center w-full mb-6 md:px-8">
+                <Headerwithviewmore  headerTitle={title} />
+            </div>
 
-            <ArticleCarousel articles={items} onArticleClick={handleArticleClick} />
+            <ArticleCarousel articles={articles} onArticleClick={handleArticleClick} selectedArticle={selectedArticle} isLoading={loading} />
 
             {selectedArticle && (
                 <ArticleModal article={selectedArticle} onClose={closeModal} />
