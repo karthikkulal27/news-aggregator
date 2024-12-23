@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="bg-gray-800 text-white py-8 px-16">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Logo and Description */}
         <div>
@@ -56,7 +56,7 @@ const Footer = () => {
                 href="mailto:support@newschannel.com"
                 className="text-gray-400 hover:text-white"
               >
-                support@newschannel.com
+                support@headlinebuzz.com
               </a>
             </li>
             <li>
@@ -70,7 +70,7 @@ const Footer = () => {
             </li>
             <li>
               <span className="text-gray-400">Address:</span>{' '}
-              <span className="text-gray-400">123 News St, Media City</span>
+              <span className="text-gray-400">123 News St, Manglore</span>
             </li>
           </ul>
         </div>
