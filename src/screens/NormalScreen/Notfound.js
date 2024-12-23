@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AnimatedMultilineUnderline from "../../components/Animatedunderline";
 
 const NotFound = () => {
   return (
@@ -22,11 +21,7 @@ const NotFound = () => {
             Go to Home
           </Link>
         </div>
-        <img
-          src="https://via.placeholder.com/400x300?text=Not+Found+Illustration"
-          alt="Not Found"
-          className="mx-auto mt-8 max-w-sm rounded"
-        />
+        
       </div>
     </div>
   );

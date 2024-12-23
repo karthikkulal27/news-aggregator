@@ -1,86 +1,75 @@
 import React, { useState } from 'react';
 import ArticleCard from './AricleCard';
+import Headerwithviewmore from './Headerwithviewmore';
 
 const ArticlesCardList = ({ articles, headlineloading }) => {
-    const [currentPage, setCurrentPage] = useState(0); // Tracks the current page of articles
+    const [currentPage, setCurrentPage] = useState(0);
     const articlesPerPage = 5;
 
-    // Calculate the current set of articles to display
     const currentArticles = articles.slice(
         currentPage * articlesPerPage,
         (currentPage + 1) * articlesPerPage
     );
 
-    // Handle "View More" logic
     const handleViewMore = () => {
         if ((currentPage + 1) * articlesPerPage < articles.length) {
             setCurrentPage((prevPage) => prevPage + 1);
         }
     };
 
+    const SkeletonLoader = ({ size }) => (
+        <div
+            className={`overflow-hidden rounded-lg bg-gray-200 animate-pulse ${size === 'b' ? 'h-64' : 'h-40'} mb-4`}
+        >
+            <div className="w-full h-2/3 bg-gray-300"></div>
+            <div className="p-4">
+                <div className="h-4 bg-gray-300 rounded mb-2"></div>
+                <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+            </div>
+        </div>
+    );
+
     return (
         <div className="w-full">
-            <div className="flex justify-between items-center w-full mb-6 md:px-8">
-                <h1 className="text-left font-bold text-3xl font-poppins">
-                    Recent News
-                </h1>
-                {(currentPage + 1) * articlesPerPage < articles.length && (
-                    <h1
-                        onClick={handleViewMore}
-                        className="text-right cursor-pointer font-semibold text-xl relative inline-block group"
-                    >
-                        View More
-                        <span className="absolute left-0 bottom-0 w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                    </h1>
-
-                )}
-
+            <div className="flex flex-col items-center w-full mb-6 md:px-8">
+                <Headerwithviewmore handleViewMore={handleViewMore} headerTitle="Recent News" />
             </div>
-            {/* Loader while articles are being fetched */}
+
             {headlineloading && currentArticles.length === 0 ? (
-                <div className="text-center text-xl">Loading...</div>
+                <div>
+                    {/* Skeleton loader for the first big article */}
+                    <SkeletonLoader size="b" />
+                    {/* Skeleton loaders for smaller articles */}
+                    <div className="flex flex-wrap justify-between">
+                        {[...Array(4)].map((_, index) => (
+                            <SkeletonLoader key={index} size="s" />
+                        ))}
+                    </div>
+                </div>
+            ) : currentArticles.length === 0 ? (
+                // "No news found" message when no articles are available
+                <div className="flex justify-center items-center h-64 bg-gray-100 rounded-md md:mx-8">
+                    <p className="text-xl font-semibold text-gray-500">No news found</p>
+                </div>
             ) : (
                 <>
                     <div className="flex flex-wrap justify-between">
-                        {/* First Article takes 50% of the width */}
                         <div className="w-full sm:w-1/2 mb-4 md:px-8">
                             {currentArticles.length > 0 && (
-                                <ArticleCard
-                                    article={currentArticles[0]}
-                                    size="b"
-                                />
+                                <ArticleCard article={currentArticles[0]} size="b" />
                             )}
                         </div>
-
-                        {/* Next 9 Articles in the remaining 50% */}
                         <div className="w-full sm:w-1/2 flex flex-wrap justify-between md:px-8">
-
-
                             {currentArticles.slice(1).map((article, index) => {
-                                if (article.content === "[Removed]") return null;
+                                if (article.content === '[Removed]') return null;
                                 return (
                                     <div key={index} className="w-full mb-4">
-                                        <ArticleCard
-                                            article={article}
-                                            size="s"
-                                        />
+                                        <ArticleCard article={article} size="s" />
                                     </div>
                                 );
                             })}
                         </div>
                     </div>
-
-                    {/* "View More" Button */}
-                    {/* {(currentPage + 1) * articlesPerPage < articles.length && (
-                        <div className="text-center mt-4">
-                            <button
-                                onClick={handleViewMore}
-                                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                            >
-                                View More
-                            </button>
-                        </div>
-                    )} */}
                 </>
             )}
         </div>
