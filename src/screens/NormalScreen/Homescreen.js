@@ -19,9 +19,9 @@ const HomePage = () => {
 
     // Fetch data on mount
     useEffect(() => {
-        dispatch(fetchTopHeadlines());
-        dispatch(fetchTodaysNews("India"));
-        dispatch(fetchTrendingArticles("viral"))
+        // dispatch(fetchTopHeadlines());
+        // dispatch(fetchTodaysNews("India"));
+        // dispatch(fetchTrendingArticles("viral"))
     }, [dispatch]);
 
     return (
