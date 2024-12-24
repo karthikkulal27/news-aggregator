@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ArticleCard from './AricleCard';
 import Headerwithviewmore from './Headerwithviewmore';
 
-const ArticlesCardList = ({ articles, headlineloading }) => {
+const ArticlesCardList = ({ articles, headlineloading, title ="Recent News" }) => {
     const [currentPage, setCurrentPage] = useState(0);
     const articlesPerPage = 5;
 
@@ -32,7 +32,7 @@ const ArticlesCardList = ({ articles, headlineloading }) => {
     return (
         <div className="w-full">
             <div className="flex flex-col items-center w-full mb-6 md:px-8">
-                <Headerwithviewmore handleViewMore={handleViewMore} headerTitle="Recent News" />
+                <Headerwithviewmore handleViewMore={handleViewMore} headerTitle={title} />
             </div>
 
             {headlineloading && currentArticles.length === 0 ? (

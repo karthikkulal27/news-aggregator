@@ -54,52 +54,11 @@ REACT_APP_API_KEY=your_api_key
 REACT_APP_API_URL=your_api_url
 Make sure all environment variables are prefixed with REACT_APP_ for React to recognize them.
 
-File Structure 📂
-bash
-Copy code
-news-aggregator/
-├── public/                # Public assets
-├── src/                   # Source code
-│   ├── components/        # Reusable components
-│   ├── pages/             # Page components
-│   ├── services/          # API services
-│   ├── utils/             # Utility functions
-│   ├── App.js             # Main React app
-│   ├── index.js           # Entry point
-├── .env                   # Environment variables
-├── Dockerfile             # Docker configuration
-├── README.md              # Documentation
-├── package.json           # Project metadata and dependencies
-Contributing 🤝
-We welcome contributions! Please follow these steps:
 
-Fork the repository.
-Create a new branch: git checkout -b feature/your-feature.
-Commit your changes: git commit -m 'Add your feature'.
-Push to the branch: git push origin feature/your-feature.
-Open a Pull Request.
-Troubleshooting 🛠️
-Common Issues:
-API Key is Undefined:
-
-Ensure your .env file is correctly set up.
-Rebuild the Docker image if the .env file was updated:
-bash
-Copy code
-docker build -t news-aggregator .
-Port Already in Use:
-
-Stop any other application using the same port:
-bash
-Copy code
-docker ps
-docker stop <container-id>
-License 📜
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 Feedback 💬
 Have questions or suggestions? Feel free to open an issue or contact us at your-email@example.com.
 
 Screenshots 📸
-Add screenshots here to visually showcase your application.
+
 

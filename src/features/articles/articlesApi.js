@@ -9,3 +9,13 @@ export const fetchArticlesFromAPI = async (url) => {
     throw new Error('Error fetching articles: ' + error.message);
   }
 };
+
+
+export const fetchArticlesFromGauradinAPI = async (url) => {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    throw new Error('Error fetching articles: ' + error.message);
+  }
+};
