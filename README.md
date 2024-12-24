@@ -30,7 +30,7 @@ Ensure you have the following installed:
 ```env
 REACT_APP_API_KEY=your_api_key
 REACT_APP_API_URL=your_api_url
-REACT_NYT_API_KEY=your_api_key
+REACT_NYT_API_KEY=your_api_key```
 
 
 ## Installation 🔧  
