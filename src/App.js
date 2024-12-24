@@ -19,6 +19,7 @@ function App() {
           <Route path="/technology" element={<TechPage />} />
           <Route path="/trading" element={<TradePage />} />
           <Route path="/lifestyle" element={<LifestylePage />} />
+          <Route path="/search" element={<HomePage />} />
           <Route path="*" element={<NotFound />} />
           {/*<Route path="/technology" element={<TechnologyPage />} /> */}
           {/* Add more routes as needed */}

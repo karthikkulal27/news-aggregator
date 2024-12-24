@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useDebounce from "../hooks/useDebounce"; // Custom debounce hook
 import FilterModal from "./FilterModal";
 
@@ -9,6 +9,7 @@ const Navbar = ({ onSearch }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filters, setFilters] = useState({});
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const debouncedSearch = useDebounce((value) => {
     if (onSearch) {
@@ -20,7 +21,12 @@ const Navbar = ({ onSearch }) => {
     const value = e.target.value;
     setSearchTerm(value);
     debouncedSearch(value); // Trigger debounced search
-  };
+
+    // Navigate to the search route
+    if (value.trim()) {
+        navigate(`/search?q=${encodeURIComponent(value)}`);
+    }
+};
 
   const handleLinkClick = (path) => {
     setActiveLink(path);
@@ -65,7 +71,7 @@ const Navbar = ({ onSearch }) => {
             </span>
           </Link>
 
-         
+
 
 
           {/* Mobile menu toggle button */}
@@ -119,10 +125,10 @@ const Navbar = ({ onSearch }) => {
               placeholder="Search..."
               className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
-            
+
           </div>
 
-{activeLink==="/"&& <button
+          {activeLink === "/" && <button
             className="flex items-center pe-3 cursor-pointer"
             onClick={openModal}
           >
@@ -148,7 +154,7 @@ const Navbar = ({ onSearch }) => {
             </svg>
             <span className={`px-1 text-s w-full md:w-auto md:order-1 md:block`} > Filter</span>
           </button>}
-          
+
 
 
 
