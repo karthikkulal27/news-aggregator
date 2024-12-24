@@ -14,6 +14,10 @@ A News Aggregator React Application that compiles and displays the latest news f
 
 ## Important Notes  
 
+-**API Failures**:
+The application relies on the API for data fetching, and if the API hits its request limit, the app might not function correctly. This is because we are using the free version, which has restrictions on the number of API calls. Please wait for 24 hours to reset the API limit before trying again.
+
+
 - **Search and Filter API Limitations**:  
   Please note that the search and filter functionalities might not work as expected sometimes. This is due to the limitations of the free version of the API we are using. If you encounter issues, it is recommended to wait at least **12-24 hours** before trying again.  
 
