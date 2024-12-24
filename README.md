@@ -36,37 +36,34 @@ REACT_NYT_API_KEY=your_api_key
 ## Installation 🔧  
 
 ### 1. Clone the Repository  
-```bash
-git clone https://github.com/karthikkulal27/news-aggregator  
+```git clone https://github.com/karthikkulal27/news-aggregator  
 cd news-aggregator  
 
 
 ### 2. Install Dependencies 
-```bash
-npm install  
+```npm install  
 
 ### 3. Run the Development Server
-```bash
-npm start
+```npm start
 Access the app in your browser at http://localhost:3000.
 
 ## Deployment with Docker 🚢
 ### 1. Build the Docker Image
-```docker build -t news-aggregator .```
+```docker build -t news-aggregator .
 
 ### 2. Run the Docker Container
-```bash
-docker run --env-file .env -p 3000:80 news-aggregator
+```docker run --env-file .env -p 3000:80 news-aggregator
+
 The app will be accessible at http://localhost:3000.
 
 Environment Variables 🛡️
 The app uses environment variables for configuration. Create a .env file in the project root with the following variables:
 
-env
-Copy code
+```env
 REACT_APP_API_KEY=your_api_key
 REACT_APP_API_URL=your_api_url
 REACT_NYT_API_KEY=your_api_key
+
 Make sure all environment variables are prefixed with REACT_APP_ for React to recognize them.
 
 
