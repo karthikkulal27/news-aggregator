@@ -10,6 +10,14 @@ Features 🚀
 Getting Started 🛠️
 Follow these instructions to get the application up and running locally or in a Docker container.
 
+## Important Notes
+
+- **Search and Filter API Limitations**:  
+  Please note that the search and filter functionalities might not work as expected sometimes. This is due to the limitations of the free version of the API we are using. If you encounter issues, it is recommended to wait at least **12-24 hours** before trying again.
+
+- To ensure optimal usage, consider upgrading to a paid API plan for uninterrupted access and higher request limits.
+
+
 Prerequisites
 Node.js >= 18.18.0
 Docker & Docker Compose
