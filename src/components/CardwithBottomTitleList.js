@@ -39,7 +39,7 @@ const CardwithTitleBottomList = ({ articles, title, loading }) => {
                     ) : article1 ? (
                         <CardwithTitleBottom article={article1} onArticleClick={handleArticleClick} />
                     ) : (
-                        <div className="flex justify-center items-center h-full bg-gray-100 rounded-md">
+                        <div className="flex justify-center items-center min-h-96 my-3 bg-gray-100 rounded-md">
                             <p className="text-xl font-semibold text-gray-500">No news found</p>
                         </div>
                     )}
@@ -59,7 +59,7 @@ const CardwithTitleBottomList = ({ articles, title, loading }) => {
                                     <CardwithTitleBottom article={article2} onArticleClick={handleArticleClick} />
                                 </div>
                             ) : (
-                                <div className="flex-1 pb-4 flex justify-center items-center bg-gray-100 rounded-md">
+                                <div className="flex-1 pb-4 flex justify-center items-center min-h-48 my-3 bg-gray-100 rounded-md">
                                     <p className="text-xl font-semibold text-gray-500">No news found</p>
                                 </div>
                             )}
@@ -68,7 +68,7 @@ const CardwithTitleBottomList = ({ articles, title, loading }) => {
                                     <CardwithTitleBottom article={article3} onArticleClick={handleArticleClick} />
                                 </div>
                             ) : (
-                                <div className="flex-1 pt-4 flex justify-center items-center bg-gray-100 rounded-md">
+                                <div className="flex-1 pt-4 flex justify-center items-center min-h-48 my-3 bg-gray-100 rounded-md">
                                     <p className="text-xl font-semibold text-gray-500">No news found</p>
                                 </div>
                             )}

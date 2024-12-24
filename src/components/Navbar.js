@@ -30,6 +30,7 @@ const Navbar = ({ onSearch }) => {
 
   const handleLinkClick = (path) => {
     setActiveLink(path);
+    setIsMobileMenuOpen(false); // Toggle mobile menu
   };
 
   const toggleMobileMenu = () => {
@@ -98,8 +99,8 @@ const Navbar = ({ onSearch }) => {
           </button>
 
 
-          {/* Search Bar (visible on mobile and desktop) */}
-          <div className="relative md:block w-full md:w-auto py-3">
+<div className="flex flex-row ">
+<div className="relative md:block w-full md:w-auto py-3">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
                 className="w-4 h-4 text-gray-500 dark:text-gray-400"
@@ -129,7 +130,7 @@ const Navbar = ({ onSearch }) => {
           </div>
 
           {activeLink === "/" && <button
-            className="flex items-center pe-3 cursor-pointer"
+            className="flex items-center pe-3 cursor-pointer p-3 px-6"
             onClick={openModal}
           >
             <svg
@@ -154,6 +155,8 @@ const Navbar = ({ onSearch }) => {
             </svg>
             <span className={`px-1 text-s w-full md:w-auto md:order-1 md:block`} > Filter</span>
           </button>}
+</div>
+          
 
 
 
