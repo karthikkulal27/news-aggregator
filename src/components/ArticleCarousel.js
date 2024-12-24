@@ -6,7 +6,7 @@ import { Autoplay } from 'swiper/modules';
 const ArticleCarousel = ({ articles, onArticleClick, selectedArticle, isLoading }) => {
     // Check if articles are loading or empty
     // const isLoading = !articles || articles.length === 0;
-
+    const fallbackImage = 'https://source.unsplash.com/150x150/?nature,water';
     return (
         <div className="px-4 sm:px-6 md:px-8">
             <Swiper
@@ -54,7 +54,7 @@ const ArticleCarousel = ({ articles, onArticleClick, selectedArticle, isLoading 
                             <SwiperSlide key={index} onClick={() => onArticleClick(article)} className="cursor-pointer">
                                 <div className="relative bg-white rounded-lg shadow-md">
                                     <img
-                                        src={article.urlToImage}
+                                        src={article.urlToImage || fallbackImage}
                                         alt={article.title}
                                         className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg"
                                     />
