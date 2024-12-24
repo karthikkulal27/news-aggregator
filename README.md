@@ -86,6 +86,75 @@ Make sure all environment variables are prefixed with REACT_APP_ for React to re
 
 
 
+## Troubleshooting 🛠️
+
+### Common Issues:
+
+#### 1. **API Key is Undefined**:
+If you're seeing that your API key is undefined, it’s likely due to an issue with the `.env` file or Docker environment variables.
+
+**Solution**:
+- Ensure your `.env` file is correctly set up with the API key and API URL:
+  - Example `.env` file:
+    ```env
+    REACT_APP_API_KEY=your_api_key
+    REACT_APP_API_URL=your_api_url
+    ```
+- If you update the `.env` file, you may need to rebuild your Docker image to apply the changes:
+  - Rebuild the Docker image:
+    ```bash
+    docker build -t news-aggregator .
+    ```
+
+- Ensure that all environment variables are prefixed with `REACT_APP_` for React to recognize them.
+
+---
+
+#### 2. **Port Already in Use**:
+If the port is already in use (for example, if Docker fails to start because port `3000` is occupied), you can stop the container or process that is using the port.
+
+**Solution**:
+- First, find the container that’s using the port:
+  - Run:
+    ```bash
+    docker ps
+    ```
+- Then, stop the container using the `docker stop` command with the container ID:
+  - Run:
+    ```bash
+    docker stop <container-id>
+    ```
+
+- If another process is occupying the port, stop the process using the port by finding it in your system’s process list or by changing the port in the Docker configuration.
+
+---
+
+#### 3. **Docker Build Fails**:
+If the Docker build is failing, it could be due to missing dependencies or an incorrect Dockerfile configuration.
+
+**Solution**:
+- Make sure that all required dependencies are installed in your project.
+- Double-check your `Dockerfile` to ensure that it includes all necessary instructions to build and run your app.
+  - Example of a basic Dockerfile:
+    ```Dockerfile
+    FROM node:18-alpine
+
+    WORKDIR /app
+    COPY package.json package-lock.json ./
+    RUN npm install
+
+    COPY . .
+
+    EXPOSE 80
+    CMD ["npm", "start"]
+    ```
+
+- Rebuild the Docker image after making any changes to the `Dockerfile`:
+  ```bash
+  docker build -t news-aggregator .
+```
+
+
 Feedback 💬
 Have questions or suggestions? Feel free to open an issue or contact us at karthik27kulal@gmail.com
 
