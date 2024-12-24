@@ -60,12 +60,15 @@ Access the app in your browser at http://localhost:3000.
 
 ## Deployment with Docker 🚢
 ### 1. Build the Docker Image
-```docker build -t news-aggregator .
+
+```
+docker build -t news-aggregator .
 ```
 
 ### 2. Run the Docker Container
 
-```docker run --env-file .env -p 3000:80 news-aggregator
+```
+docker run --env-file .env -p 3000:80 news-aggregator
 ```
 
 The app will be accessible at http://localhost:3000.
