@@ -16,7 +16,9 @@ Docker & Docker Compose
 A .env file with the following variables:
 env
 Copy code
-REACT_APP_API_KEY=<Your API Key>
+REACT_APP_API_KEY=your_api_key
+REACT_APP_API_URL=your_api_url
+REACT_NYT_API_KEY=your_api_key
 
 Installation 🔧
 1. Clone the Repository
@@ -52,13 +54,13 @@ env
 Copy code
 REACT_APP_API_KEY=your_api_key
 REACT_APP_API_URL=your_api_url
+REACT_NYT_API_KEY=your_api_key
 Make sure all environment variables are prefixed with REACT_APP_ for React to recognize them.
 
 
 
 Feedback 💬
-Have questions or suggestions? Feel free to open an issue or contact us at your-email@example.com.
+Have questions or suggestions? Feel free to open an issue or contact us at karthik27kulal@gmail.com
 
-Screenshots 📸
 
 
