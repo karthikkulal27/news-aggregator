@@ -67,7 +67,7 @@ const Navbar = ({ onSearch }) => {
               alt="News Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Headline Buzzz
+              Headline Buzz
             </span>
           </Link>
 

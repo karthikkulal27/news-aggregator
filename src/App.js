@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ArticlesList from './components/ArticleList';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './screens/ScreenLayouts/MainLayout';
 import HomePage from './screens/NormalScreen/Homescreen';
-import NotFound from './screens/NormalScreen/Notfound';
-import SportsPage from './screens/NormalScreen/SportsScreen';
-import TechPage from './screens/NormalScreen/Techscreen';
-import TradePage from './screens/NormalScreen/Tradingscreen';
-import LifestylePage from './screens/NormalScreen/Lifestylescreen';
+
+// Lazy loading other pages
+const NotFound = React.lazy(() => import('./screens/NormalScreen/Notfound'));
+const SportsPage = React.lazy(() => import('./screens/NormalScreen/SportsScreen'));
+const TechPage = React.lazy(() => import('./screens/NormalScreen/Techscreen'));
+const TradePage = React.lazy(() => import('./screens/NormalScreen/Tradingscreen'));
+const LifestylePage = React.lazy(() => import('./screens/NormalScreen/Lifestylescreen'));
 
 function App() {
   return (
@@ -15,17 +17,56 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/sports" element={<SportsPage />} />
-          <Route path="/technology" element={<TechPage />} />
-          <Route path="/trading" element={<TradePage />} />
-          <Route path="/lifestyle" element={<LifestylePage />} />
-          <Route path="/search" element={<HomePage />} />
-          <Route path="*" element={<NotFound />} />
-          {/*<Route path="/technology" element={<TechnologyPage />} /> */}
-          {/* Add more routes as needed */}
+          <Route
+            path="/sports"
+            element={
+              <Suspense fallback={<div>Loading Sports...</div>}>
+                <SportsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/technology"
+            element={
+              <Suspense fallback={<div>Loading Technology...</div>}>
+                <TechPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/trading"
+            element={
+              <Suspense fallback={<div>Loading Trading...</div>}>
+                <TradePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/lifestyle"
+            element={
+              <Suspense fallback={<div>Loading Lifestyle...</div>}>
+                <LifestylePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <Suspense fallback={<div>Loading Search...</div>}>
+                <HomePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <NotFound />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
-
     </Router>
   );
 }
