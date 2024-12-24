@@ -33,7 +33,7 @@ const CardwithTitleBottomList = ({ articles, title, loading }) => {
             {/* Layout */}
             <div className="flex flex-col md:flex-row h-full">
                 {/* Left side */}
-                <div className="w-full md:w-2/3 h-full px-3 mb-4 md:mb-0">
+                <div className="w-full md:w-2/3 h-full md:px-3 mb-4 md:mb-0">
                     {loading ? (
                         <div className="skeleton-loader h-64 w-full bg-gray-300 animate-pulse rounded-md" />
                     ) : article1 ? (
@@ -46,7 +46,7 @@ const CardwithTitleBottomList = ({ articles, title, loading }) => {
                 </div>
 
                 {/* Right side */}
-                <div className="flex flex-col w-full md:w-1/3 h-full px-3">
+                <div className="flex flex-col w-full md:w-1/3 h-full md:px-3">
                     {loading ? (
                         <>
                             <div className="skeleton-loader h-32 w-full bg-gray-300 animate-pulse rounded-md mb-4" />
